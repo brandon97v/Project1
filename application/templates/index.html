@@ -1,0 +1,36 @@
+(index.html)
+
+{% extends "layout.html" %}
+
+{% block body %}
+<p>
+    Here are the tasks you need to do!
+</p>
+{% for task in all_tasks %}
+    <p>
+        Task no. #{{ task.id }}<br>
+        {{ task.description }}<br>
+    </p>
+{% endfor %}
+
+{% endblock body %}
+
+
+(layout.html)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List App - {{ title }}</title>
+    </head>
+    <body>
+        <navbar>
+            <a href="/">Home</a>
+            <a href="/create_task">Add New Task</a>
+        </navbar>
+        <h1>
+            Todo List App - {{ title }}
+        </h1>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>
